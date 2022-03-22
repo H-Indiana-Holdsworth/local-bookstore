@@ -27,3 +27,14 @@ INSERT INTO
     authors (name, dob, pob)
 VALUES
     ('bob', '6/15/2001', 'Prescott');
+
+CREATE TABLE reviewers(
+    id BIGINT GENERATED ALWAYS AS IDENTITY,
+    name TEXT NOT NULL,
+    company TEXT NOT NULL
+);
+
+INSERT INTO 
+    reviewers (name, company)
+VALUES
+    ('Dobby', 'Pindy LLC');
