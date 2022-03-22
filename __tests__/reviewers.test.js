@@ -27,4 +27,15 @@ describe('local-bookstore reviewer routes', () => {
     const res = await request(app).get('/api/v1/reviewers');
     expect(res.body).toEqual(expected);
   });
+
+  it('should get reviewers by id', async () => {
+    const reviewer = await Reviewer.insert({
+      id: expect.any(String),
+      name: 'james',
+      company: 'pindy',
+    });
+    const res = await request(app).get(`/api/v1/reviewers/${reviewer.id}`);
+
+    expect(res.body).toEqual(reviewer);
+  });
 });
