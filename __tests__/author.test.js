@@ -15,7 +15,7 @@ describe('local-bookstore author routes', () => {
   it('create an author', async () => {
     const author = {
       name: 'bob',
-      dob: '2001-06-15T07:00:00.000Z',
+      dob: '6/15/2001',
       pob: 'Prescott',
     };
 

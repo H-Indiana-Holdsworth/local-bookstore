@@ -26,4 +26,4 @@ CREATE TABLE authors(
 INSERT INTO
     authors (name, dob, pob)
 VALUES
-    ('bob', '2001-06-15T07:00:00.000Z', 'Prescott');
+    ('bob', '6/15/2001', 'Prescott');
