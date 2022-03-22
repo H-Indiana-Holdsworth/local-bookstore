@@ -2,6 +2,7 @@
 -- The SQL in this file will be executed when you run `npm run setup-db`
 DROP TABLE IF EXISTS publishers;
 DROP TABLE IF EXISTS authors;
+DROP TABLE IF EXISTS reviewers;
 
 CREATE TABLE publishers(
     id BIGINT GENERATED ALWAYS AS IDENTITY,
@@ -11,11 +12,6 @@ CREATE TABLE publishers(
     country TEXT NOT NULL
 );
 
-INSERT INTO 
-    publishers (name, city, state, country)
-VALUES 
-    ('Pindy', 'Prescott', 'AZ', 'USA');
-
 CREATE TABLE authors(
     id BIGINT GENERATED ALWAYS AS IDENTITY PRIMARY KEY,
     name TEXT NOT NULL,
@@ -23,17 +19,21 @@ CREATE TABLE authors(
     pob TEXT NOT NULL
 );
 
-INSERT INTO
-    authors (name, dob, pob)
-VALUES
-    ('bob', '6/15/2001', 'Prescott');
-
 CREATE TABLE reviewers(
     id BIGINT GENERATED ALWAYS AS IDENTITY,
     name TEXT NOT NULL,
     company TEXT NOT NULL
 );
 
+
+INSERT INTO 
+    publishers (name, city, state, country)
+VALUES 
+    ('Pindy', 'Prescott', 'AZ', 'USA');
+INSERT INTO
+    authors (name, dob, pob)
+VALUES
+    ('bob', '6/15/2001', 'Prescott');
 INSERT INTO 
     reviewers (name, company)
 VALUES
