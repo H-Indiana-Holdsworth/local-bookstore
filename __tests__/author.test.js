@@ -2,7 +2,6 @@ const pool = require('../lib/utils/pool');
 const setup = require('../data/setup');
 const request = require('supertest');
 const app = require('../lib/app');
-const Author = require('../lib/models/Author');
 
 describe('local-bookstore author routes', () => {
   beforeEach(() => {
@@ -14,9 +13,13 @@ describe('local-bookstore author routes', () => {
   });
 
   it('create an author', async () => {
-    const author = { name: 'bob', dob: '06/15/2001', pob: 'Prescott' };
+    const author = {
+      name: 'bob',
+      dob: '2001-06-15T07:00:00.000Z',
+      pob: 'Prescott',
+    };
 
-    const res = request(app).post('/api/v1/authors').send(author);
+    const res = await request(app).post('/api/v1/authors').send(author);
 
     expect(res.body).toEqual({ id: expect.any(String), ...author });
   });
