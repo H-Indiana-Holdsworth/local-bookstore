@@ -107,7 +107,7 @@ While the schemas should look like the data definitions above, these are descrip
         ]
     }
 ### GET /authors
-[{ id, name }]
+    [{ id, name }]
 ### GET /authors/:id
     {
         name,
