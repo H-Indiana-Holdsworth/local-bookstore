@@ -46,37 +46,37 @@ Properties marked with R are required.
 id property omitted for clarity.
 
 ### Publisher
-`{
-  name: <name-of-publisher RS>,
-  city: <city S>
-  state: <state S>
-  country: <country S>
-}`
+    {
+    name: <name-of-publisher RS>,
+    city: <city S>
+    state: <state S>
+    country: <country S>
+    }
 
 ### Author (Many-to-Many with Book)
-`{
-  name: <name RS>,
-  dob: <date-of-birth D>,
-  pob: <place-of-birth S>
-}`
+    {
+    name: <name RS>,
+    dob: <date-of-birth D>,
+    pob: <place-of-birth S>
+    }
 ### Book (Many-to-Many with Author)
-`{
-  title: <title of book RS>,
-  publisher: <publisher id RI>,
-  released: <4-digit year RN>
-}`
+    {
+    title: <title of book RS>,
+    publisher: <publisher id RI>,
+    released: <4-digit year RN>
+    }
 ### Reviewer
-`{
-  name: <string RS>,
-  company: <company or website name RS>
-}`
+    {
+    name: <string RS>,
+    company: <company or website name RS>
+    }
 ### Review
-`{
-  rating: <rating number 1-5 RN>,
-  reviewer: <review id RI>
-  review: <review-text, max-length 140 chars RS>,
-  book: <book-id RI>
-}`
+    {
+    rating: <rating number 1-5 RN>,
+    reviewer: <review id RI>
+    review: <review-text, max-length 140 chars RS>,
+    book: <book-id RI>
+    }
 
 ## Routes
 Pick the set of routes that fit with your vertical slice.
@@ -85,67 +85,68 @@ Pick the set of routes that fit with your vertical slice.
 While the schemas should look like the data definitions above, these are descriptions of the data that should be returned from the various GET methods.
 
 ### GET /publishers
-`[{ id, name }]`
+    [{ id, name }]
 ### GET /publishers/:id
-`{ id, name, city, state, country, books: [{ id, title }] }`
+    { id, name, city, state, country, books: [{ id, title }] }
 ### GET /books
-`[{
-    id, title, released,
-    publisher: { id, name }
-}]`
-### GET /books/:id
-`{
-    title,
-    released,
-    publisher: { id, name },
-    authors: [{ id, name }], // author id and name
-    reviews: [{
-        id,
-        rating,
-        review,
-        reviewer: { id, name }
-    ]
-}`
-### GET /authors
-`[{ id, name }]`
-### GET /authors/:id
-`{
-    name,
-    dob,
-    pob,
-    books: [{
-      id,
-      title,
-      released
+    [{
+        id, title, released,
+        publisher: { id, name }
     }]
-}`
+### GET /books/:id
+    {
+        title,
+        released,
+        publisher: { id, name },
+        authors: [{ id, name }], // author id and name
+        reviews: [{
+            id,
+            rating,
+            review,
+            reviewer: { id, name }
+        ]
+    }
+### GET /authors
+[{ id, name }]
+### GET /authors/:id
+    {
+        name,
+        dob,
+        pob,
+        books: [{
+        id,
+        title,
+        released
+        }]
+    }
 ### GET /reviewers
-`[{
-  id,
-  name,
-  company
-}]`
-### GET /reviewers/:id
-`{
+    [{
     id,
     name,
-    company,
-    reviews: [{
+    company
+    }]
+### GET /reviewers/:id
+    {
+        id,
+        name,
+        company,
+        reviews: [{
+            id,
+            rating,
+            review,
+            book: { id, title }
+        }]
+    }
+### GET /reviews
+limit to 100 highest rated
+
+    [{
         id,
         rating,
         review,
         book: { id, title }
     }]
-}`
-### GET /reviews
-limit to 100 highest rated
 
-`[{
-    id,
-    rating,
-    review,
-    book: { id, title }
-}]`
 ## POST/PUT
 ### POST: Publishers, Books, Authors, Reviewers, and Reviews can be added.
 ### PUT: Only Reviewers can be updated.
