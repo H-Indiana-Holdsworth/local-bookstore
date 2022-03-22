@@ -7,7 +7,7 @@ DROP TABLE IF EXISTS review  CASCADE;
 DROP TABLE IF EXISTS books CASCADE ;
 
 CREATE TABLE publishers(
-    publisher_id BIGINT GENERATED ALWAYS AS IDENTITY PRIMARY KEY,
+    id BIGINT GENERATED ALWAYS AS IDENTITY PRIMARY KEY,
     name TEXT NOT NULL,
     city TEXT NOT NULL,
     state TEXT NOT NULL,
@@ -31,7 +31,7 @@ CREATE TABLE reviewers(
 CREATE TABLE books(
     id BIGINT GENERATED ALWAYS AS IDENTITY PRIMARY KEY,
     title TEXT NOT NULL,
-    publisher_id BIGINT REFERENCES publishers(publisher_id),
+    publisher_id BIGINT REFERENCES publishers(id),
     released INT NOT NULL
 );
 
