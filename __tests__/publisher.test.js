@@ -2,6 +2,7 @@ const pool = require('../lib/utils/pool');
 const setup = require('../data/setup');
 const request = require('supertest');
 const app = require('../lib/app');
+const Publisher = require('../lib/models/Publisher');
 
 describe('local-bookstore routes', () => {
   beforeEach(() => {
@@ -21,5 +22,12 @@ describe('local-bookstore routes', () => {
     };
     const res = await request(app).post('/api/v1/publishers').send(expected);
     expect(res.body).toEqual({ id: expect.any(String), ...expected });
+  });
+
+  it('list all publishers', async () => {
+    const expected = await Publisher.getAllPublishers();
+    const res = await request(app).get('/api/v1/publishers');
+
+    expect(res.body).toEqual(expected);
   });
 });
