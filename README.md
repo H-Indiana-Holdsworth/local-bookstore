@@ -222,9 +222,9 @@ Reviewers cannot be deleted if there are reviews
 | Project Organization | 2      |
 
 - Remaining Tasks
-  - get list of books
+  - ~~get list of books~~
   - get list of reviews
-  - getById book
-  - create book
-  - create review
+  - ~~getById book~~
+  - ~~create book~~
+  - ~~create review~~
   - delete reviewer
