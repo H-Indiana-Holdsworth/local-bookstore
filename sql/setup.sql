@@ -36,6 +36,7 @@ CREATE TABLE books(
 );
 
 CREATE TABLE reviews(
+    id BIGINT GENERATED ALWAYS AS IDENTITY PRIMARY KEY,
     rating INT NOT NULL,
     review VARCHAR NOT NULL,
     reviewer_id BIGINT REFERENCES reviewers(id),
@@ -49,13 +50,26 @@ INSERT INTO
     publishers (name, city, state, country)
 VALUES 
     ('Pindy', 'Prescott', 'AZ', 'USA');
+
 INSERT INTO
     authors (name, dob, pob)
 VALUES
     ('bob', '6/15/2001', 'Prescott');
+
 INSERT INTO 
     reviewers (name, company)
 VALUES
     ('Dobby', 'Pindy LLC');
+
+INSERT INTO
+    books (title, publisher_id, released)
+VALUES
+    ('cool book', '1', 2001 );
+
+INSERT INTO
+    reviews (rating, review, reviewer_id, book_id)
+VALUES
+    (3, 'Good', '1', '1');
+
 
 
