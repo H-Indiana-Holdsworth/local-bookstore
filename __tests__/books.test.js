@@ -30,4 +30,10 @@ describe('local-bookstore book routes', () => {
     const res = await request(app).get('/api/v1/books');
     expect(res.body).toEqual(expected);
   });
+
+  it('gets a book by id', async () => {
+    const expected = await Book.getBookById(1);
+    const res = await request(app).get(`/api/v1/books/${expected.id}`);
+    expect(res.body).toEqual(expected);
+  });
 });
