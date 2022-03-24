@@ -89,7 +89,7 @@ VALUES
 INSERT INTO
     reviews (rating, review, reviewer_id, book_id)
 VALUES
-    (3, 'Good', '1', '1');
+    (3, 'Good', '1', '1')
 
 
 
