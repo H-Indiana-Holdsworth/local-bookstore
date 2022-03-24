@@ -9,16 +9,16 @@ DROP TABLE IF EXISTS books CASCADE ;
 CREATE TABLE publishers(
     id BIGINT GENERATED ALWAYS AS IDENTITY PRIMARY KEY,
     name TEXT NOT NULL,
-    city TEXT NOT NULL,
-    state TEXT NOT NULL,
-    country TEXT NOT NULL
+    city TEXT,
+    state TEXT,
+    country TEXT
 );
 
 CREATE TABLE authors(
     id BIGINT GENERATED ALWAYS AS IDENTITY PRIMARY KEY,
     name TEXT NOT NULL,
-    dob DATE NOT NULL,
-    pob TEXT NOT NULL
+    dob DATE,
+    pob TEXT
 );
 
 CREATE TABLE reviewers(
