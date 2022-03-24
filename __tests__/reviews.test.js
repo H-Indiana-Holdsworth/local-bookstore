@@ -46,4 +46,10 @@ describe('local-bookstore book routes', () => {
 
     expect(res.body).toEqual(review);
   });
+
+  it('deletes a review by id', async () => {
+    const expected = await Review.deleteReview(1);
+    const res = await request(app).delete('/api/v1/reviews/1');
+    expect(expected).not.toContain(res.body);
+  });
 });
