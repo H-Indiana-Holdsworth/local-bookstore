@@ -1,11 +1,12 @@
 -- Use this file to define your SQL tables
 -- The SQL in this file will be executed when you run `npm run setup-db`
-DROP TABLE IF EXISTS publishers  CASCADE;
-DROP TABLE IF EXISTS authors  CASCADE;
-DROP TABLE IF EXISTS reviewers  CASCADE;
-DROP TABLE IF EXISTS reviews  CASCADE;
-DROP TABLE IF EXISTS books CASCADE ;
-DROP TABLE IF EXISTS authors_books CASCADE ;
+DROP TABLE IF EXISTS publishers CASCADE;
+DROP TABLE IF EXISTS authors CASCADE;
+DROP TABLE IF EXISTS reviewers CASCADE;
+DROP TABLE IF EXISTS reviews CASCADE;
+DROP TABLE IF EXISTS books CASCADE;
+DROP TABLE IF EXISTS authors_books CASCADE;
+DROP TABLE IF EXISTS publishers_books CASCADE;
 
 CREATE TABLE publishers(
     id BIGINT GENERATED ALWAYS AS IDENTITY PRIMARY KEY,
@@ -49,7 +50,10 @@ CREATE TABLE authors_books(
     books_id BIGINT REFERENCES books(id)
 );
 
-
+CREATE TABLE publishers_books(
+    publisher_id BIGINT REFERENCES publishers(id),
+    books_id BIGINT REFERENCES books(id)
+);
 
 
 
