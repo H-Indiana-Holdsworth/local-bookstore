@@ -3,7 +3,7 @@
 DROP TABLE IF EXISTS publishers  CASCADE;
 DROP TABLE IF EXISTS authors  CASCADE;
 DROP TABLE IF EXISTS reviewers  CASCADE;
-DROP TABLE IF EXISTS review  CASCADE;
+DROP TABLE IF EXISTS reviews  CASCADE;
 DROP TABLE IF EXISTS books CASCADE ;
 
 CREATE TABLE publishers(
@@ -35,7 +35,7 @@ CREATE TABLE books(
     released INT NOT NULL
 );
 
-CREATE TABLE review(
+CREATE TABLE reviews(
     rating INT NOT NULL,
     review VARCHAR NOT NULL,
     reviewer_id BIGINT REFERENCES reviewers(id),

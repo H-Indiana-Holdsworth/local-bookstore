@@ -220,3 +220,11 @@ Reviewers cannot be deleted if there are reviews
 | Routes               | 5      |
 | Tests                | 3      |
 | Project Organization | 2      |
+
+- Remaining Tasks
+  - get list of books
+  - get list of reviews
+  - getById book
+  - create book
+  - create review
+  - delete reviewer
