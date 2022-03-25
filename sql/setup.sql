@@ -86,7 +86,8 @@ INSERT INTO
     reviewers (name, company)
 VALUES
     ('Dobby', 'Pindy LLC'),
-    ('Brad', 'Yotun');
+    ('Brad', 'Yotun'),
+    ('Indy', 'Runaway LLC');
 
 INSERT INTO
     books (title, publisher_id, released)
