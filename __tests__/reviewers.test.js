@@ -43,7 +43,7 @@ describe('local-bookstore reviewer routes', () => {
     });
 
     const res = await request(app)
-      .patch('/api/v1/reviewers/2')
+      .patch('/api/v1/reviewers/3')
       .send({ company: 'bing bong' });
 
     expect(res.body).toEqual({ id: expect.any(String), ...reviewer });
