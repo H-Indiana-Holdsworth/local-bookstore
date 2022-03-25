@@ -43,7 +43,7 @@ describe('local-bookstore reviewer routes', () => {
     });
 
     const res = await request(app)
-      .patch('/api/v1/reviewers/3')
+      .patch('/api/v1/reviewers/4')
       .send({ company: 'bing bong' });
 
     expect(res.body).toEqual({ id: expect.any(String), ...reviewer });
@@ -58,5 +58,11 @@ describe('local-bookstore reviewer routes', () => {
     );
 
     expect(res.body).toEqual(expected);
+  });
+
+  it('deletes a reviewer if there are no reviews', async () => {
+    const reviewer = await Reviewer.deleteReviewer(3);
+    const res = await request(app).delete('/api/v1/reviewers/3');
+    expect(reviewer).not.toContain(res.body);
   });
 });

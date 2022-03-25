@@ -223,7 +223,7 @@ Reviewers cannot be deleted if there are reviews
 
 - Remaining Tasks
   - ~~get list of books~~
-  - get list of reviews (edit test)
+  - ~~get list of reviews (edit test)~~
   - ~~getById book~~
   - ~~create book~~
   - ~~create review~~
