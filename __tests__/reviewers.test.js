@@ -65,4 +65,9 @@ describe('local-bookstore reviewer routes', () => {
     const res = await request(app).delete('/api/v1/reviewers/3');
     expect(reviewer).not.toContain(res.body);
   });
+
+  it('doesnt delete a reviewer if there are reviews', async () => {
+    const res = await request(app).delete('/api/v1/reviewers/1');
+    expect(res.body.message).toEqual('This reviewer cant be deleted');
+  });
 });
