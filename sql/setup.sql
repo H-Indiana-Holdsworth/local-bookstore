@@ -8,6 +8,7 @@ DROP TABLE IF EXISTS books CASCADE;
 DROP TABLE IF EXISTS authors_books CASCADE;
 DROP TABLE IF EXISTS publishers_books CASCADE;
 DROP TABLE IF EXISTS reviewers_reviews CASCADE;
+DROP TABLE IF EXISTS books_reviews CASCADE;
 
 
 CREATE TABLE publishers(
@@ -59,6 +60,11 @@ CREATE TABLE publishers_books(
 
 CREATE TABLE reviewers_reviews(
     reviewer_id BIGINT REFERENCES reviewers(id),
+    review_id BIGINT REFERENCES reviews(id)
+);
+
+CREATE TABLE books_reviews(
+    book_id BIGINT REFERENCES books(id),
     review_id BIGINT REFERENCES reviews(id)
 );
 
