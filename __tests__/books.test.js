@@ -52,4 +52,13 @@ describe('local-bookstore book routes', () => {
 
     expect(res.body).toEqual(expected);
   });
+
+  it('gets all book information by book id', async () => {
+    const book = await Book.getBookById(1);
+    const bookAuthor = await book.getAuthorByBookId();
+    const expected = await bookAuthor.getReviewByBookId();
+    const res = await request(app).get(`/api/v1/books/${book.id}/all`);
+
+    expect(res.body).toEqual(expected);
+  });
 });
