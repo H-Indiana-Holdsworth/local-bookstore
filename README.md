@@ -223,8 +223,9 @@ Reviewers cannot be deleted if there are reviews
 
 - Remaining Tasks
   - ~~get list of books~~
-  - get list of reviews
+  - get list of reviews (edit test)
   - ~~getById book~~
   - ~~create book~~
   - ~~create review~~
-  - delete reviewer
+  - delete reviewer if no reviews
+  - don't delete reviewer if there are reviews
